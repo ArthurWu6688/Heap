@@ -6,7 +6,11 @@
 
 
 void HeapPrint(Heap php) {
-
+    assert(!HeapEmpty(php));
+    for (int i = 0; i < php.size; ++i) {
+        printf("%d ", php.base[i]);
+    }
+    printf("\n");
 }
 
 void HeapInit(Heap *php) {
@@ -17,13 +21,16 @@ void HeapInit(Heap *php) {
 }
 
 void HeapDestroy(Heap *php) {
-
+    assert(php);
+    free(php->base);
+    php->base = NULL;
+    php->size = php->capacity = 0;
 }
 
 void swap(int *p1, int *p2) {
     int tmp = *p1;
     *p1 = *p2;
-    *p2 = *p1;
+    *p2 = tmp;
 }
 
 void AdjustUp(HPDataType *arr, int child) {
@@ -59,10 +66,10 @@ void HeapPush(Heap *php, HPDataType value) {
 void AdjustDown(HPDataType *arr, int Heap_size, int parent) {
     int minChild = parent * 2 + 1;
     while (minChild < Heap_size) {
-        if (minChild + 1 < Heap_size && arr[minChild + 1] < arr[minChild]) {
+        if (minChild + 1 < Heap_size && arr[minChild + 1] > arr[minChild]) {
             ++minChild;
         }
-        if (arr[parent] > arr[minChild]) {
+        if (arr[parent] < arr[minChild]) {
             swap(&arr[parent], &arr[minChild]);
             parent = minChild;
             minChild = parent * 2 + 1;

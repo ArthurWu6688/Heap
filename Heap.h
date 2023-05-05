@@ -25,5 +25,8 @@ void HeapPop(Heap *php);
 bool HeapEmpty(Heap php);
 HPDataType HeapTop(Heap php);
 int HeapSize(Heap php);
+void AdjustUp(HPDataType *arr, int child);
+void AdjustDown(HPDataType *arr, int Heap_size, int parent);
+void swap(int *p1, int *p2);
 
 #endif //HEAP_HEAP_H
