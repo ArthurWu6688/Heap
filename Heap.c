@@ -66,10 +66,10 @@ void HeapPush(Heap *php, HPDataType value) {
 void AdjustDown(HPDataType *arr, int Heap_size, int parent) {
     int minChild = parent * 2 + 1;
     while (minChild < Heap_size) {
-        if (minChild + 1 < Heap_size && arr[minChild + 1] > arr[minChild]) {
+        if (minChild + 1 < Heap_size && arr[minChild + 1] < arr[minChild]) {
             ++minChild;
         }
-        if (arr[parent] < arr[minChild]) {
+        if (arr[parent] > arr[minChild]) {
             swap(&arr[parent], &arr[minChild]);
             parent = minChild;
             minChild = parent * 2 + 1;

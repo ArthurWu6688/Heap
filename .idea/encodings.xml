@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Heap.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Heap.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cmake-build-debug/data.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/main.c" charset="GBK" />
   </component>
 </project>
